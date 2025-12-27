@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="animated-bg"></div>
+    
+    <div class="container">
+        <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+            <div class="glass-card" style="max-width: 500px; width: 100%;">
+                <div class="text-center mb-3">
+                    <h1>✨ Resume Builder</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem;">
+                        Create ATS-optimized resumes in minutes
+                    </p>
+                </div>
+
+                <div id="alertContainer"></div>
+
+                <form id="loginForm">
+                    <h2 class="mb-2">Welcome Back</h2>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="your.email@example.com"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Enter your password"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        Login
+                    </button>
+                </form>
+
+                <div class="text-center mt-3">
+                    <p style="color: var(--text-secondary);">
+                        Don't have an account? 
+                        <a href="signup.html" style="font-weight: 600;">Sign Up</a>
+                    </p>
+                </div>
+
+                <div class="mt-3" style="padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem;">🎨</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">Beautiful Design</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem;">📄</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">ATS Optimized</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem;">⚡</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">Fast & Easy</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        // Handle login form submission
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            await login(email, password);
+        });
+    </script>
+</body>
+</html>
